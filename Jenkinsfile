@@ -31,15 +31,15 @@ pipeline {
         }
         stage('Full path 2') {
             steps {
-                sh("/var/lib/jenkins/workspace/fibonacci//scripts/fibonacci.sh ${env.NUMBER}")
+                sh("/var/lib/jenkins/workspace/fibonacci//scripts/fibonacci.sh ${params.NUMBER}")
             }
         }
+        
         stage('Change directory') {
-            steps {
-                sh "cd ${env.WORKSPACE}/scripts"{
-                    sh("./fibonacci.sh ${params.NUMBER}")
-                }
-            }
+          steps {
+            sh "cd ${env.WORKSPACE}/scripts"
+            sh "./fibonacci.sh ${params.NUMBER}" 
+          }
         }
     }
 }
