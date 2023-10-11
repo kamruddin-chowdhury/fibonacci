@@ -29,6 +29,11 @@ pipeline {
                 sh("${env.WORKSPACE}/scripts/fibonacci.sh ${params.NUMBER}")
             }
         }
+        stage('Full path 2') {
+            steps {
+                sh("/var/lib/jenkins/workspace/fibonacci//scripts/fibonacci.sh ${env.NUMBER}")
+            }
+        }
         stage('Change directory') {
             steps {
                 dir("${env.WORKSPACE}/scripts"){
