@@ -10,9 +10,7 @@ pipeline {
         timeout(time: 12, unit: 'HOURS')
         timestamps()
     }
-    triggers {
-        cron '@midnight'
-    }
+    
     stages {
         stage('Make executable') {
             steps {
